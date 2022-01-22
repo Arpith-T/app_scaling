@@ -81,7 +81,7 @@ def scale_up_mtms(guid):
 def scale_down_and_up(guid):
     scale_down_mtms(guid)
     # time.sleep(900)
-    time.sleep(os.getenv(int("DOWNNIME")))
+    time.sleep(int(os.getenv("DOWNTIME")))
     scale_up_mtms(guid)
 
 
