@@ -1,4 +1,5 @@
 import json
+import os
 import subprocess
 import time
 import requests
@@ -34,8 +35,11 @@ def read_config():
     return config_file
 
 config = read_config()
-guid = app_guid(app=config["app_name"])
+# guid = app_guid(app=config["app_name"])
+
+guid = app_guid(os.getenv("MTMS"))
 oauth_token = cf_oauth_token()
+
 
 def scale_down_mtms(guid):
     url = f"https://api.cf.sap.hana.ondemand.com/v3/processes/{guid}/actions/scale"
@@ -76,7 +80,8 @@ def scale_up_mtms(guid):
 
 def scale_down_and_up(guid):
     scale_down_mtms(guid)
-    time.sleep(900)
+    # time.sleep(900)
+    time.sleep(os.getenv(int("DOWNNIME")))
     scale_up_mtms(guid)
 
 
