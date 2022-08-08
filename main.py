@@ -7,7 +7,7 @@ import requests
 
 def cf_oauth_token():
     login = subprocess.run(
-        f'cf login -a https://api.cf.sap.hana.ondemand.com -o "CPI-Global-Canary_aciat001"  -s prov_eu10_aciat001 -u prism@global.corp.sap -p Prisminfra529#5')
+        f'cf login -a https://api.cf.sap.hana.ondemand.com -o "CPI-Global-Canary_aciat001"  -s prov_eu10_aciat001 -u prism@global.corp.sap -p XXX')
     # print(login)
 
     oauth_token = subprocess.run("cf oauth-token", stdout=subprocess.PIPE)
